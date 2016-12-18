@@ -1,5 +1,5 @@
 SELECT DISTINCT
     name
 FROM
-    sakila.language
+    language
 ORDER BY name;

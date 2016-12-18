@@ -1,6 +1,6 @@
 SELECT DISTINCT
     first_name
 FROM
-    sakila.customer
+    customer
 WHERE
     last_name = 'FOX'

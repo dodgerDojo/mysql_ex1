@@ -1,5 +1,5 @@
 SELECT 
-    first_name, last_name, COUNT(DISTINCT name) AS counter
+    first_name, last_name
 FROM
     film,
     film_actor,
@@ -12,7 +12,7 @@ WHERE
         AND film_category.film_id = film.film_id
         AND category.category_id = film_category.category_id
 GROUP BY first_name , last_name
-HAVING counter = (SELECT DISTINCT
+HAVING COUNT(DISTINCT name) = (SELECT DISTINCT
         COUNT(*) AS counter
     FROM
         category)

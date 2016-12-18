@@ -1,8 +1,8 @@
 SELECT 
-    first_name, last_name, MAX(total)
+    customer_id, first_name, MAX(total)
 FROM
     (SELECT 
-        first_name, last_name, SUM(amount) AS total
+        payment.customer_id, first_name, last_name, SUM(amount) AS total
     FROM
         payment, customer
     WHERE

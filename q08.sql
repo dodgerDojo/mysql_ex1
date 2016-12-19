@@ -1,11 +1,10 @@
-SELECT 
-    first_name, last_name
+SELECT DISTINCT
+    customer1.first_name, customer1.last_name
 FROM
-    (SELECT 
-        first_name, last_name, COUNT(*) AS last_counter
-    FROM
-        customer
-    GROUP BY last_name
-    HAVING last_counter = 1) AS T1
-GROUP BY first_name
-HAVING COUNT(*) > 1
+    customer AS customer1,
+    customer AS customer2
+WHERE
+    customer1.first_name = customer2.first_name
+        AND customer1.last_name != customer2.last_name
+GROUP BY last_name
+ORDER BY first_name
